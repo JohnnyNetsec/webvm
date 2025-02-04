@@ -14,5 +14,6 @@ RUN chmod -R +x  /home/user/examples/lua
 WORKDIR /home/user/
 # We set env, as this gets extracted by Webvm. This is optional.
 ENV HOME="/home/user" TERM="xterm" USER="user" SHELL="/bin/bash" EDITOR="vim" LANG="en_US.UTF-8" LC_ALL="C"
-RUN echo 'root:password' | chpasswd
+RUN echo 'root:pass' | chpasswd
+RUN useradd -m user2 && echo "user2:user2" | chpasswd
 CMD [ "/bin/bash" ]
